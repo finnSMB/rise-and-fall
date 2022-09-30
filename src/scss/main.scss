@@ -1,0 +1,16 @@
+@use "sass:math";
+
+// Variables
+$spacer: 15px;
+
+// Keyframe animations
+@keyframes append-animate {
+	from {
+		transform: scaleY(0);
+		opacity: 0;
+	}
+	to {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+}
