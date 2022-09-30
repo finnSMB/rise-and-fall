@@ -27,7 +27,7 @@ export default {
       const textBox = document.getElementsByClassName("home-text")[0]
       const newText = document.createElement("p")
       newText.innerText = "Hello!"
-      newText.classList.add("added")
+      newText.classList.add("event")
       textBox.append(newText)
       this.updateScroll()
     },
@@ -57,12 +57,13 @@ export default {
   overflow: auto;
 }
 
-.added {
-  animation: append-animate .3s linear;
+.event {
+  animation: append-animate .3s ease-in-out;
 }
 
 .home-events {
   margin: 5px 0;
   padding: 0 5px;
+  color: blueviolet;
 }
 </style>

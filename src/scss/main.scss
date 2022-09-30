@@ -6,11 +6,11 @@ $spacer: 15px;
 // Keyframe animations
 @keyframes append-animate {
 	from {
-		transform: scaleY(0);
+		transform: scaleX(0);
 		opacity: 0;
 	}
 	to {
-		transform: scaleY(1);
+		transform: scaleX(1);
 		opacity: 1;
 	}
 }
