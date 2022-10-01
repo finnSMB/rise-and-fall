@@ -4,17 +4,22 @@
       <p>Welcome. A new civilisation is about to be created..</p>
     </div>
     <div v-if="isEvent" class="home-events">
-      home-events
+      <!-- replace with v-for -->
+      <button>Event response 1</button>
+      <button>Event response 2</button>
+      <button>Event response 3</button>
+      <button>Event response 4</button>
     </div>
-    <button @click="spawn">Spawn Text</button>
-    <button :value="isEvent" @click="function() {isEvent = !isEvent}">isEvent: {{isEvent}}</button>
+    <Debug :hasEvent="isEvent" @event-spawn="isEvent = !isEvent" @scroll-event="updateScroll" />
   </div>
 </template>
 
 <script>
+import Debug from "@/components/Debug.vue"
 export default {
   name: 'HomeView',
   components: {
+    Debug,
   },
   data() {
     return {
@@ -23,19 +28,11 @@ export default {
   },
   props: {},
   methods: {
-    spawn() {
-      const textBox = document.getElementsByClassName("home-text")[0]
-      const newText = document.createElement("p")
-      newText.innerText = "Hello!"
-      newText.classList.add("event")
-      textBox.append(newText)
-      this.updateScroll()
-    },
     updateScroll() {
       var textBox = document.getElementsByClassName("home-text")[0]
       textBox.scrollTop = textBox.scrollHeight
     }
-  }
+  },
 }
 </script>
 
@@ -53,7 +50,7 @@ export default {
 .home-text {
   margin: 5px 0;
   padding: 0 5px;
-  max-height: 400px;
+  max-height: 320px;
   overflow: auto;
 }
 
