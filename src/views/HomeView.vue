@@ -10,7 +10,7 @@
       <button>Event response 3</button>
       <button>Event response 4</button>
     </div>
-    <Debug :hasEvent="isEvent" @event-spawn="isEvent = !isEvent" @scroll-event="updateScroll" />
+    <Debug :hasEvent="isEvent" @event-spawn="isEvent = !isEvent" @text-spawn="addToTextBox" />
   </div>
 </template>
 
@@ -28,10 +28,21 @@ export default {
   },
   props: {},
   methods: {
+    addToTextBox(text) {
+      const textBox = document.getElementsByClassName("home-text")[0]
+      const newText = document.createElement("p")
+      newText.innerText = text
+      newText.classList.add("event")
+      textBox.append(newText)
+      this.updateScroll()
+    },
     updateScroll() {
       var textBox = document.getElementsByClassName("home-text")[0]
       textBox.scrollTop = textBox.scrollHeight
     }
+  },
+  created() {
+    console.log(1)
   },
 }
 </script>
